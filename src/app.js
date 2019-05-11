@@ -6,6 +6,8 @@ const forecast = require('./utils/forecast.js');
 
 const app = express(); // Initializing express
 
+const port = process.env.PORT || 3000; // For setting port here 3000 for local and process.env.PORT for web servers 
+
 // Define paths for express config
 const publicDirPath = path.join(__dirname, '../public'); 
 // path join is function which accepts string array and join all these in order to create a path.
@@ -101,6 +103,6 @@ app.get('*', (req, res) => {
 });
 
 // Listening express on port
-app.listen(3000, () => {
-    console.log('Server is up on port 3000');
+app.listen(port, () => {
+    console.log('Server is up on port ' + port);
 });
